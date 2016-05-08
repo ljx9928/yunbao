@@ -1,0 +1,11 @@
+**/*.class
+**/target/*
+RemoteSystemsTempFiles/*
+*.bak
+.metadata/*
+.recommenders/*
+**/.settings/*
+**/*.classpath
+**/*.project
+Servers/*
+**/META-INF/*
