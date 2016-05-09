@@ -7,27 +7,26 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
-import com.m4.domain.model.Room;
+import com.m4.domain.model.Truck;
 
-public class RoomController extends AbstractController {
+public class TruckController extends AbstractController {
 
-	public Room getRoom(String id) {
-		Room room = new Room();
-		room.setOwner("User " + id);
-		room.setSize("big");
-		return room;
+	public Truck getTruck(String id) {
+		Truck truck = new Truck();
+		truck.setBrand("DongFeng");
+		truck.setDriver("Auto Driver number " + id);
+		return truck;
 	}
 
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest paramHttpServletRequest,
 			HttpServletResponse paramHttpServletResponse) throws Exception {
-		ModelAndView model = new ModelAndView("room");
-		// model.addObject("myshop", getShop());
+		ModelAndView model = new ModelAndView("Truck");
 		String roomId = paramHttpServletRequest.getParameter("id");
 		if (StringUtils.isNotEmpty(roomId)) {
-			model.addObject("room", getRoom(roomId));
+			model.addObject("Truck", getTruck(roomId));
 		} else {
-			model.addObject("room", getRoom("3"));
+			model.addObject("Truck", getTruck("3"));
 		}
 		return model;
 	}

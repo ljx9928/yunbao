@@ -7,12 +7,12 @@
 	<packaging>pom</packaging>
 	<name>Base module of all Projects</name>
 	<modules>
-		<module>../common-modules</module>
-		<module>../module4</module>
-		<module>../consumer</module>
-		<module>../producer</module>
-		<module>../soap-consumer</module>
-		<module>../soap-producer</module>
+		<module>../m4-test-modules</module>
+		<module>../m4-platform</module>
+		<module>../m4-test-consumer</module>
+		<module>../m4-test-producer</module>
+		<!-- <module>../m4-test-soap-consumer</module>
+		<module>../m4-test-soap-producer</module> -->
 	</modules>
 	<properties>
 		<springframework.version>4.2.5.RELEASE</springframework.version>
@@ -80,13 +80,13 @@
 
 			<dependency>
 				<groupId>ws</groupId>
-				<artifactId>module4</artifactId>
-				<version>0.1-SNAPSHOT</version>
+				<artifactId>m4-platform</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>ws</groupId>
-				<artifactId>common-modules</artifactId>
-				<version>0.1-SNAPSHOT</version>
+				<artifactId>m4-test-modules</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.servlet</groupId>

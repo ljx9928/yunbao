@@ -7,7 +7,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../m4-base/pom.xml</relativePath>
 	</parent>
-	<artifactId>soap-consumer</artifactId>
+	<artifactId>m4-test-soap-consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>soap-consumer</name>

@@ -11,9 +11,9 @@
 	</parent>
 
 
-	<artifactId>consumer</artifactId>
+	<artifactId>m4-test-consumer</artifactId>
 	<name>Consumer</name>
-	<version>0.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<dependencies>
@@ -59,11 +59,11 @@
 		</dependency>
 		<dependency>
 			<groupId>ws</groupId>
-			<artifactId>module4</artifactId>
+			<artifactId>m4-platform</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>ws</groupId>
-			<artifactId>common-modules</artifactId>
+			<artifactId>m4-test-modules</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>

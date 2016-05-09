@@ -1,22 +1,19 @@
-package org.m4.platform.service;
+package org.m4.platform.svc;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Callable;
 
 import org.m4.platform.dao.AbstractDAO;
 import org.m4.platform.datamodel.DataModel;
 import org.m4.platform.domainmodel.DomainModel;
 
-public class BasePipelineServiceImpl implements BaseService {
-	//private List<BaseDataServiceImpl> services;
+public class BasePipelineService extends BaseService {
 
 	private DomainModel domainModel;
 	private List<DataModel> dataModels;
 
-	public <T, V> DomainModel makeWSCall(Map<T, V> param) throws Exception {
-
+	@Override
+	public <T, V> DomainModel execute(Map<T, V> param) throws Exception {
 		for (final DataModel dm : dataModels) {
 			AbstractDAO<T> dao = dm.getDao();
 			dao.setParams(param);
@@ -32,8 +29,6 @@ public class BasePipelineServiceImpl implements BaseService {
 		domainModel.build(dataModels);
 		return domainModel;
 	}
-
-	
 
 	public List<DataModel> getDataModels() {
 		return dataModels;
@@ -51,5 +46,7 @@ public class BasePipelineServiceImpl implements BaseService {
 		this.domainModel = domainModel;
 	}
 
-
+	public Object call() throws Exception {
+		return this.execute(param);
+	}
 }

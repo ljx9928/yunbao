@@ -9,13 +9,13 @@ import org.m4.platform.domainmodel.DomainModel;
 
 public class AdvancedPipelineServiceImpl implements AdvancedService, Callable<List<DomainModel>> {
 
-	private List<BaseDataServiceImpl> services;
+	//private List<BaseDataServiceImpl> services;
 
 	private List<AdvancedParellelServiceImpl> pServices;
 
 	private Map<?, ?> param;
 
-	public List<DomainModel> processAdvancedParellelServices(Map<?, ?> param) throws Exception {
+	public List<DomainModel> processBaseServices(Map<?, ?> param) throws Exception {
 		List<DomainModel> dms = new ArrayList<DomainModel>();
 
 		for (AdvancedParellelServiceImpl pService : pServices) {
@@ -26,29 +26,29 @@ public class AdvancedPipelineServiceImpl implements AdvancedService, Callable<Li
 		return dms;
 	}
 
-	public List<DomainModel> processBaseServices(Map<?, ?> param) throws Exception {
-		List<DomainModel> dms = new ArrayList<DomainModel>();
-
-		for (BaseDataServiceImpl baseService : services) {
-			DomainModel domainModel = baseService.makeWSCall(param);
-			domainModel.build(baseService.getDataModels());
-			dms.add(domainModel);
-		}
-
-		return dms;
-	}
+//	public List<DomainModel> processBaseServices(Map<?, ?> param) throws Exception {
+//		List<DomainModel> dms = new ArrayList<DomainModel>();
+//
+//		for (BaseDataServiceImpl baseService : services) {
+//			DomainModel domainModel = baseService.makeWSCall(param);
+//			domainModel.build(baseService.getDataModels());
+//			dms.add(domainModel);
+//		}
+//
+//		return dms;
+//	}
 
 	public List<DomainModel> call() throws Exception {
 		return processBaseServices(this.param);
 	}
 
-	public List<BaseDataServiceImpl> getServices() {
-		return services;
-	}
-
-	public void setServices(List<BaseDataServiceImpl> services) {
-		this.services = services;
-	}
+//	public List<BaseDataServiceImpl> getServices() {
+//		return services;
+//	}
+//
+//	public void setServices(List<BaseDataServiceImpl> services) {
+//		this.services = services;
+//	}
 
 	public Map<?, ?> getParam() {
 		return param;
@@ -58,5 +58,6 @@ public class AdvancedPipelineServiceImpl implements AdvancedService, Callable<Li
 		this.param = param;
 
 	}
+
 
 }

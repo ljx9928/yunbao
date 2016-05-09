@@ -11,8 +11,8 @@
 		<relativePath>../m4-base/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>producer</artifactId>
-	<version>0.1</version>
+	<artifactId>m4-test-producer</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>producer</name>
 
@@ -59,11 +59,11 @@
 		</dependency>
 		<dependency>
 			<groupId>ws</groupId>
-			<artifactId>module4</artifactId>
+			<artifactId>m4-platform</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>ws</groupId>
-			<artifactId>common-modules</artifactId>
+			<artifactId>m4-test-modules</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>

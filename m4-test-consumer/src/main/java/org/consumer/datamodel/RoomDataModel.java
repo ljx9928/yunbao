@@ -5,33 +5,21 @@ import java.util.Map;
 import org.m4.platform.dao.AbstractDAO;
 import org.m4.platform.datamodel.DataModel;
 
-import com.m4.domain.model.Truck;
+import com.m4.domain.model.Room;
 
-public class TruckDataModel implements DataModel {
+public class RoomDataModel implements DataModel {
 	private AbstractDAO dao;
 
-	private Truck prod;
+	private Room room;
+
+	private Map param;
 
 	@Override
 	public <T> void processResponse(T s) {
-		if (s instanceof Truck) {
-			this.prod = (Truck) s;
+		if (s instanceof Room) {
+			this.room = (Room) s;
 		}
 	}
-
-	 
-
-	public Truck getProd() {
-		return prod;
-	}
-
-
-
-	public void setProd(Truck prod) {
-		this.prod = prod;
-	}
-
-
 
 	@Override
 	public <T> void setDao(AbstractDAO<T> dao) {
@@ -44,10 +32,20 @@ public class TruckDataModel implements DataModel {
 		return dao;
 	}
 
-	@Override
-	public Map getParam() {
-		// TODO Auto-generated method stub
-		return null;
+	public Room getRoom() {
+		return room;
 	}
 
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
+	public void setParam(Map param) {
+		this.param = param;
+	}
+
+	@Override
+	public Map getParam() {
+		return param;
+	}
 }

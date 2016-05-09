@@ -18,7 +18,7 @@ public class AdvancedParellelServiceImpl implements AdvancedService, Callable<Li
 	private List<AdvancedPipelineServiceImpl> pipelineServices;
 	private Map<?, ?> param;
 
-	public List<DomainModel> processBaseServices(Map<?, ?> param) throws Exception {
+	public List<DomainModel> processAdvancedPipelineServices(Map<?, ?> param) throws Exception {
 		ExecutorService executor = Executors.newFixedThreadPool(pipelineServices.size());
 
 		Map<AdvancedPipelineServiceImpl, FutureTask<List<DomainModel>>> map = new HashMap<AdvancedPipelineServiceImpl, FutureTask<List<DomainModel>>>();
@@ -50,6 +50,11 @@ public class AdvancedParellelServiceImpl implements AdvancedService, Callable<Li
 	public void setParam(Map<?, ?> param) {
 		this.param = param;
 
+	}
+
+	public List<DomainModel> processBaseServices(Map<?, ?> param) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -29,10 +29,9 @@ public class AbstractDAO<T> extends RestTemplate implements Callable<T> {
 		this.url = url;
 	}
 
-
 	public T call() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		java.lang.Class<T> t = null;
+		return (T) super.getForObject(url + "?id={id}", t, params);
 	}
 
 	public Map getParams() {

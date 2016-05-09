@@ -20,11 +20,18 @@
 				<entry key="/prod.json" value-ref="prodController" />
 				<entry key="/prod.xml" value-ref="prodController" />
 				<entry key="/shop.xml" value-ref="shopController" />
+				<entry key="/house.xml" value-ref="houseController" />
+				<entry key="/room.xml" value-ref="roomController" />
+				<entry key="/desk.xml" value-ref="deskController" />
 			</map>
 		</property>
 	</bean>
 
 	<bean id="prodController" class="org.producer.ProductController"></bean>
 	<bean id="shopController" class="org.producer.ShopController"></bean>
+	
+	<bean id="houseController" class="org.producer.HouseController"></bean>
+	<bean id="roomController" class="org.producer.RoomController"></bean>
+	<bean id="deskController" class="org.producer.DeskController"></bean>
 
 </beans>
