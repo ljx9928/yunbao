@@ -5,33 +5,31 @@ import java.util.Map;
 import org.m4.platform.dao.AbstractDAO;
 import org.m4.platform.datamodel.DataModel;
 
+import com.m4.domain.model.Product;
 import com.m4.domain.model.Truck;
 
 public class TruckDataModel implements DataModel {
 	private AbstractDAO dao;
 
-	private Truck prod;
+	private Truck truck;
 
 	@Override
 	public <T> void processResponse(T s) {
-		if (s instanceof Truck) {
-			this.prod = (Truck) s;
+		if (s instanceof Product) {
+			Truck t = new Truck();
+			t.setBrand(((Product) s).getColor());
+			t.setDriver(((Product) s).getProdName());
+			this.truck = t;
 		}
 	}
 
-	 
-
-	public Truck getProd() {
-		return prod;
+	public Truck getTruck() {
+		return truck;
 	}
 
-
-
-	public void setProd(Truck prod) {
-		this.prod = prod;
+	public void setTruck(Truck truck) {
+		this.truck = truck;
 	}
-
-
 
 	@Override
 	public <T> void setDao(AbstractDAO<T> dao) {

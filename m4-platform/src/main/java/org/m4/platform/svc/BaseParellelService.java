@@ -35,8 +35,9 @@ public class BaseParellelService extends BaseService {
 			}
 			future.getKey().processResponse(response);
 		}
-
-		domainModel.build(dataModels);
+		if (domainModel != null) {
+			domainModel.build(dataModels);
+		}
 		return domainModel;
 	}
 

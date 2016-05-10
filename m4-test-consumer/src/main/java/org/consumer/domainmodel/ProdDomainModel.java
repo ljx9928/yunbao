@@ -4,31 +4,42 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.consumer.datamodel.CarDataModel;
-import org.consumer.datamodel.ShopDataModel;
 import org.m4.platform.datamodel.DataModel;
 import org.m4.platform.domainmodel.DomainModel;
+import org.m4.platform.domainmodel.DomainModelBuilder;
+
+import com.m4.domain.model.CollectionModel;
 
 public class ProdDomainModel implements DomainModel {
 	final String prodDomainModel = "ProdDomainModel";
+	private DomainModelBuilder domainModelBuilder;
 
-	private Map<String, Map> map = new HashMap<String, Map>();
+	private CollectionModel collectModel;
+	private Map<String, DomainModel> map = new HashMap<String, DomainModel>();
 
 	@Override
 	public void build(List<DataModel> dataModels) {
-		Map localmap = new HashMap();
-		for (DataModel dm : dataModels) {
-			if (dm instanceof ShopDataModel) {
-				localmap.put("shop", ((ShopDataModel) dm).getShop());
-			} else if (dm instanceof CarDataModel) {
-				localmap.put("prod", ((CarDataModel) dm).getProd());
-			}
-		}
-		map.put(prodDomainModel, localmap);
+		map.put(prodDomainModel, domainModelBuilder.build(this, dataModels));
 	}
 
 	@Override
-	public Map<String, Map> getDataMap() {
+	public Map<String, DomainModel> getDataMap() {
 		return map;
+	}
+
+	public CollectionModel getCollectModel() {
+		return collectModel;
+	}
+
+	public void setCollectModel(CollectionModel collectModel) {
+		this.collectModel = collectModel;
+	}
+
+	public DomainModelBuilder getDomainModelBuilder() {
+		return domainModelBuilder;
+	}
+
+	public void setDomainModelBuilder(DomainModelBuilder domainModelBuilder) {
+		this.domainModelBuilder = domainModelBuilder;
 	}
 }

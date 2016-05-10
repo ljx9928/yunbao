@@ -13,6 +13,7 @@ public class AbstractDAO<T> extends RestTemplate implements Callable<T> {
 
 	public Map params;
 	public String url;
+	public String responseType;
 	// ResponseExtractor responseExtractor;
 
 	@Override
@@ -29,17 +30,24 @@ public class AbstractDAO<T> extends RestTemplate implements Callable<T> {
 		this.url = url;
 	}
 
-	public T call() throws Exception {
-		java.lang.Class<T> t = null;
-		return (T) super.getForObject(url + "?id={id}", t, params);
-	}
-
 	public Map getParams() {
 		return params;
 	}
 
 	public void setParams(Map params) {
 		this.params = params;
+	}
+
+	public T call() throws Exception {
+		return (T) super.getForObject(url, Class.forName(responseType), params);
+	}
+
+	public String getResponseType() {
+		return responseType;
+	}
+
+	public void setResponseType(String responseType) {
+		this.responseType = responseType;
 	}
 
 }

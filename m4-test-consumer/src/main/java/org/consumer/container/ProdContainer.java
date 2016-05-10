@@ -2,17 +2,17 @@ package org.consumer.container;
 
 import java.util.Map;
 
+import org.consumer.domainmodel.ProdDomainModel;
 import org.m4.platform.container.BaseContainer;
 
 public class ProdContainer extends BaseContainer {
 
 	@Override
 	public void buildPageContainer(Map argMap) {
-		Map dms = (Map) argMap.get("ProdDomainModel");
+		ProdDomainModel dms = (ProdDomainModel) argMap.get("ProdDomainModel");
 
-		
-		this.addObject("ProdDomainModel", dms);
-		
+		this.addObject("ProdDomainModel", dms.getCollectModel());
+
 		this.addObject("responseType", "success");
 	}
 

@@ -12,7 +12,8 @@
 
 
 
-	<import resource="spring-services.xml" />
+	<!-- <import resource="spring-services.xml" /> -->
+	<import resource="spring-svc.xml" />
 
 	<bean id="carDataModel" class="org.consumer.datamodel.CarDataModel">
 		<property name="dao" ref="carDAO"></property>
@@ -50,15 +51,17 @@
 	</bean>
 
 	<bean id="houseDAO" class="org.m4.platform.dao.AbstractDAO">
-		<property name="url" value="http://localhost:8080/producer/house.xml"></property>
+		<property name="url" value="http://localhost:8080/producer/house.xml"/>
+		<property name="responseType" value="com.m4.domain.model.House" />
 	</bean>
 	
-	<bean id="RoomDataModel" class="org.consumer.datamodel.RoomDataModel">
+	<bean id="roomDataModel" class="org.consumer.datamodel.RoomDataModel">
 		<property name="dao" ref="roomDAO"></property>
 	</bean>
 
 	<bean id="roomDAO" class="org.m4.platform.dao.AbstractDAO">
-		<property name="url" value="http://localhost:8080/producer/room.xml"></property>
+		<property name="url" value="http://localhost:8080/producer/room.xml"/>
+		<property name="responseType" value="com.m4.domain.model.Room" />
 	</bean>
 	<bean id="deskDataModel" class="org.consumer.datamodel.DeskDataModel">
 		<property name="dao" ref="deskDAO"></property>
@@ -66,5 +69,7 @@
 
 	<bean id="deskDAO" class="org.m4.platform.dao.AbstractDAO">
 		<property name="url" value="http://localhost:8080/producer/desk.xml"></property>
+		<property name="responseType" value="com.m4.domain.model.Desk" />
+		
 	</bean>
 </beans>

@@ -26,7 +26,9 @@ public class BasePipelineService extends BaseService {
 			}
 		}
 
-		domainModel.build(dataModels);
+		if (domainModel != null) {
+			domainModel.build(dataModels);
+		}
 		return domainModel;
 	}
 

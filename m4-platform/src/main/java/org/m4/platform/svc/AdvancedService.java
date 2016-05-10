@@ -1,5 +1,6 @@
 package org.m4.platform.svc;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -8,8 +9,9 @@ import org.m4.platform.datamodel.DataModel;
 import org.m4.platform.domainmodel.DomainModel;
 
 public abstract class AdvancedService implements Callable {
-	public List<BaseService> services;
-	public List<AdvancedService> advancedServices;
+	public DomainModel domainModel;
+	public List<BaseService> services  = Collections.EMPTY_LIST;
+	public List<AdvancedService> advancedServices=Collections.EMPTY_LIST;
 	public Map<?, ?> param;
 
 	public abstract List<DomainModel> execute(Map<?, ?> param) throws Exception;
@@ -36,6 +38,14 @@ public abstract class AdvancedService implements Callable {
 
 	public void setParam(Map<?, ?> param) {
 		this.param = param;
+	}
+
+	public DomainModel getDomainModel() {
+		return domainModel;
+	}
+
+	public void setDomainModel(DomainModel domainModel) {
+		this.domainModel = domainModel;
 	}
 
 }

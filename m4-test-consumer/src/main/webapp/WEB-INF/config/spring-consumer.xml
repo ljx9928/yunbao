@@ -55,6 +55,11 @@
 					<list>
 					   <value>com.m4.domain.model.Shop</value>
 					   <value>com.m4.domain.model.Product</value>
+					   <value>com.m4.domain.model.Desk</value>
+					   <value>com.m4.domain.model.House</value>
+					   <value>com.m4.domain.model.Room</value>
+					   <value>com.m4.domain.model.Truck</value>
+					   <value>com.m4.domain.model.CollectionModel</value>
 					</list>
 				   </property>
 				</bean>
@@ -84,7 +89,7 @@
 	<bean id="prodContainer" class="org.consumer.container.ProdContainer" />
 
 	<bean id="prodDelegate" class="org.consumer.delegate.ProdDelegate">
-		<!-- <property name="service" ref="prodService" /> -->
-		<property name="service" ref="prodPipelineService" />
+		<!-- <property name="service" ref="prodPipelineService" /> -->
+		<property name="service" ref="aPipelineService" />
 	</bean>
 </beans>
