@@ -1,29 +1,28 @@
 
-package hello;
+package com.yunbao.m4.soap.consumer.dao;
 
 import java.text.SimpleDateFormat;
-
-import hello.wsdl.Forecast;
-import hello.wsdl.ForecastReturn;
-import hello.wsdl.GetCityForecastByZIP;
-import hello.wsdl.GetCityForecastByZIPResponse;
-import hello.wsdl.Temp;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
+import com.yunbao.m4.platform.util.LogUtil;
+import com.yunbao.m4.soap.consumer.weather.Forecast;
+import com.yunbao.m4.soap.consumer.weather.ForecastReturn;
+import com.yunbao.m4.soap.consumer.weather.GetCityForecastByZIP;
+import com.yunbao.m4.soap.consumer.weather.GetCityForecastByZIPResponse;
+import com.yunbao.m4.soap.consumer.weather.Temp;
+
 public class WeatherClient extends WebServiceGatewaySupport {
 
-	private static final Logger log = LoggerFactory.getLogger(WeatherClient.class);
+	private static final org.apache.log4j.Logger log = LogUtil.getLogger(WeatherClient.class);
 
 	public GetCityForecastByZIPResponse getCityForecastByZip(String zipCode) {
 
 		GetCityForecastByZIP request = new GetCityForecastByZIP();
 		request.setZIP(zipCode);
 
-		log.info("Requesting forecast for " + zipCode);
+		log.debug("Requesting forecast for " + zipCode);
 
 		GetCityForecastByZIPResponse response = (GetCityForecastByZIPResponse) getWebServiceTemplate()
 				.marshalSendAndReceive(

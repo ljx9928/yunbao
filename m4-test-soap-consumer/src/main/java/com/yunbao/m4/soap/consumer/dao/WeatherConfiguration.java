@@ -1,5 +1,5 @@
 
-package hello;
+package com.yunbao.m4.soap.consumer.dao;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
