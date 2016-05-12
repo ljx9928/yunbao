@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:m4="http://yunbao.com/m4/soap/producer">
+	<soapenv:Header />
+	<soapenv:Body>
+		<m4:getCountryRequest>
+			<m4:name>Spain</m4:name>
+		</m4:getCountryRequest>
+	</soapenv:Body>
+</soapenv:Envelope>
