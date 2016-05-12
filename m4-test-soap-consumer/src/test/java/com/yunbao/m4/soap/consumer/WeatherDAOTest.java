@@ -1,5 +1,5 @@
 
-package com.yunbao.m4.soap.producer;
+package com.yunbao.m4.soap.consumer;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -12,24 +12,28 @@ import org.springframework.util.ClassUtils;
 import org.springframework.ws.client.core.WebServiceTemplate;
 import org.springframework.xml.transform.StringResult;
 
+import com.yunbao.m4.soap.consumer.dao.WeatherClient;
+import com.yunbao.m4.soap.consumer.weather.GetCityForecastByZIP;
+import com.yunbao.m4.soap.consumer.weather.GetCityForecastByZIPResponse;
+
 @WebIntegrationTest
-public class CountryTests {
+public class WeatherDAOTest {
 
 	private Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
 
-	@Value("${local.server.port}")
-	private int port = 8080;
+	// @Value("${local.server.port}")
+	// private int port = 8080;
 
 	@Before
 	public void init() throws Exception {
-		marshaller.setPackagesToScan(ClassUtils.getPackageName(GetCountryRequest.class));
+		marshaller.setPackagesToScan(ClassUtils.getPackageName(GetCityForecastByZIP.class));
 		marshaller.afterPropertiesSet();
 	}
 
-	@Test
+	// @Test
 	public void testSendAndReceive() {
-		GetCountryRequest request = new GetCountryRequest();
-		request.setName("Spain");
+		GetCityForecastByZIP request = new GetCityForecastByZIP();
+		request.setZIP("94304");
 		WebServiceTemplate wst = new WebServiceTemplate(marshaller);
 
 		Object response = wst.marshalSendAndReceive("http://localhost:8080/soap-producer/ws/", request);
@@ -41,4 +45,11 @@ public class CountryTests {
 		assertNotNull(result.toString());
 	}
 
+	@Test
+	public void testWeatherClient() {
+		WeatherClient ws = new WeatherClient();
+		ws.setMarshaller(marshaller);
+		GetCityForecastByZIPResponse response = ws.getCityForecastByZip("94304");
+		assertNotNull(response);
+	}
 }

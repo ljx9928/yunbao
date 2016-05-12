@@ -9,3 +9,4 @@ RemoteSystemsTempFiles/*
 **/*.project
 Servers/*
 **/META-INF/*
+**/logs/*
