@@ -10,3 +10,10 @@ RemoteSystemsTempFiles/*
 Servers/*
 **/META-INF/*
 **/logs/*
+ch.basler.*
+
+libra/node_modules/*
+/.metadata/
+/.recommenders/
+.idea/*
+*/node_modules/*
