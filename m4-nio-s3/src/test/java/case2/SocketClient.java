@@ -10,11 +10,13 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class SocketClient {
     public static void main(String[] args) {
-        SocketClient client = new SocketClient();
+
+       SocketClient client = new SocketClient();
     }
 
 
